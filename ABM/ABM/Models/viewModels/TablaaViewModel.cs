@@ -26,6 +26,7 @@ namespace ABM.Models.viewModels
         [DataType(DataType.Date)]
         [Display(Name = "fecha_nacimiento")]
         public DateTime fecha_nacimiento { get; set; }
+        public Sueldo sueldo { get; set; }
 
     }
 }

@@ -6,6 +6,9 @@
     <edmx:Diagrams>
       <Diagram DiagramId="4dc7928281924e57b5ab44e4b8240abf" Name="Diagram1">
         <EntityTypeShape EntityType="TablaModel.tabla" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TablaModel.Sueldo" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="TablaModel.sysdiagrams" Width="1.5" PointX="3.375" PointY="0.75" />
+        <AssociationConnector Association="TablaModel.FK_tabla_Sueldo" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

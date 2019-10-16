@@ -8,8 +8,46 @@
     <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="fecha_nacimiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sueldo" Type="Int32" />
+    <NavigationProperty Name="Sueldo1" Relationship="TablaModel.FK_tabla_Sueldo" FromRole="tabla" ToRole="Sueldo" />
   </EntityType>
   <EntityContainer Name="TablaEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="tabla" EntityType="Self.tabla" />
+    <EntitySet Name="Sueldo" EntityType="TablaModel.Sueldo" />
+    <EntitySet Name="sysdiagrams" EntityType="TablaModel.sysdiagrams" />
+    <AssociationSet Name="FK_tabla_Sueldo" Association="TablaModel.FK_tabla_Sueldo">
+      <End Role="Sueldo" EntitySet="Sueldo" />
+      <End Role="tabla" EntitySet="tabla" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Sueldo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="sueldo1" Type="Int32" />
+    <NavigationProperty Name="tabla" Relationship="TablaModel.FK_tabla_Sueldo" FromRole="Sueldo" ToRole="tabla" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_tabla_Sueldo">
+    <End Type="TablaModel.Sueldo" Role="Sueldo" Multiplicity="0..1" />
+    <End Type="TablaModel.tabla" Role="tabla" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sueldo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tabla">
+        <PropertyRef Name="sueldo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

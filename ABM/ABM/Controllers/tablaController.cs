@@ -20,6 +20,7 @@ namespace ABM.Controllers
                             select new ListTablaViewModel
                             {
                                 Id = d.Id,
+                                sueldo = d.sueldo,
                                 nombre = d.nombre,
                                 correo = d.correo,
                                 //fecha_nacimiento = d.fecha_nacimiento,
@@ -51,6 +52,7 @@ namespace ABM.Controllers
                     {
                         var oTabla = new tabla();
                         oTabla.correo = model.correo;
+                        oTabla.sueldo = model.sueldo;
                         oTabla.nombre = model.nombre;
                         //oTabla.fecha_nacimiento = model.fecha_nacimiento;
 
@@ -76,6 +78,7 @@ namespace ABM.Controllers
             {
                 var oTabla = db.tabla.Find(Id);
                 model.Id = oTabla.Id;
+                model.sueldo = oTabla.sueldo;
                 model.nombre = oTabla.nombre;
                 model.correo = oTabla.correo;
               

@@ -26,5 +26,7 @@ namespace ABM.Models.viewModels
         }
     
         public virtual DbSet<tabla> tabla { get; set; }
+        public virtual DbSet<Sueldo> Sueldo { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

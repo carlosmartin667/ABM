@@ -18,5 +18,8 @@ namespace ABM.Models.viewModels
         public string nombre { get; set; }
         public string correo { get; set; }
         public string fecha_nacimiento { get; set; }
+        public Nullable<int> sueldo { get; set; }
+    
+        public virtual Sueldo Sueldo1 { get; set; }
     }
 }
