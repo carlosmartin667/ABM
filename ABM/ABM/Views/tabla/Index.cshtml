@@ -1,0 +1,53 @@
+﻿@model List<ABM.Models.viewModels.ListTablaViewModel>
+@{
+    ViewBag.Title = "FAMILIA DEL POLO";
+}
+
+    <br />
+<br />
+
+
+<div class="row" style="text-align:center">
+
+    <h2>@ViewBag.Title</h2>
+
+</div>
+
+
+@*tabla*@
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">  </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var oElementos in Model)
+                {
+                    <tr>
+                        <th scope="row">@oElementos.Id</th>
+                        <td>@oElementos.nombre</td>
+                        <td>@oElementos.correo</td>
+                        <td>
+                            <a class="btn btn-default" href="~/tabla/Editar/@oElementos.Id">EDITAR</a>
+                            <a class="btn btn-danger" href="~/tabla/Eliminar/@oElementos.Id">ELIMINAR</a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row" style="text-align:center">
+
+    <a href="../tabla/Nuevo" class=" btn btn-primary">nuevo</a>
+
+</div>
